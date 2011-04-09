@@ -34,6 +34,9 @@ class BootstrapTest extends \PHPUnit_Framework_TestCase
     {
         parent::tearDown();
 
+        $storage = $this->app['storage'];
+        $storage->close();
+
         $fs = new Filesystem();
         $fs->remove($this->baseDir);
     }
